@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+        <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <param name="target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%c:%L] %m%n"/>
+        </layout>
+    </appender>
+    
+    
+    <appender name="LOGFILE_DUBUG" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${catalina.home}/logs/logJava/ESB_Rest_NTServices_Detail.log"/>
+        <param name="encoding" value="UTF-8"/>
+        <param name="maxFileSize" value="10MB" />
+        <param name="DatePattern" value=".yyyy-MM-dd" />
+		<param name="StaticLogFileName" value="false"/>
+		<param name="AppendToFile" value="true" />
+		<param name="RollingStyle" value="Date" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%c:%L] %m%n"/>
+        </layout>
+    </appender>
+    
+    
+    <appender name="LOGFILE" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${catalina.home}/logs/logJava/ESB_Rest_NTServices.log"/>
+        <param name="encoding" value="UTF-8"/>
+        <param name="maxFileSize" value="10MB" />
+        <param name="DatePattern" value=".yyyy-MM-dd" />
+		<param name="StaticLogFileName" value="false"/>
+		<param name="AppendToFile" value="true" />
+		<param name="RollingStyle" value="Date" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%m%n"/>
+        </layout>
+    </appender>
+    
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="LOGFILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</log4j:configuration>
